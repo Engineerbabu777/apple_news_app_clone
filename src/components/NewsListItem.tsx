@@ -2,8 +2,9 @@ import { Image, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { formatDistanceToNow } from "date-fns";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { News } from "@/types/types";
 type Props = {
-  newsArticle: any;
+  newsArticle: News;
 };
 
 const NewsListItem = ({ newsArticle }: Props) => {
