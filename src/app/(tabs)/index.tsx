@@ -1,6 +1,7 @@
 import NewsListItem from "@/components/NewsListItem";
-import { Text, View } from "react-native";
+import { FlatList, Text, View } from "react-native";
 import allNews from "@assets/data/allNews.json";
+import { News } from "@/types/types";
 
 export default function HomeScreen() {
   return (
@@ -9,10 +10,13 @@ export default function HomeScreen() {
         marginTop: 60
       }}
     >
-      <NewsListItem newsArticle={allNews[0]} />
-      <NewsListItem newsArticle={allNews[1]} />
-      <NewsListItem newsArticle={allNews[2]} />
-      <NewsListItem newsArticle={allNews[3]} />
+      <FlatList
+        data={allNews}
+        renderItem={({ item }: { item: News }) => (
+          <NewsListItem key={item.id} newsArticle={item} />
+        )}
+        keyExtractor={(item) => item.id.toString()}
+      />
     </View>
   );
 }
