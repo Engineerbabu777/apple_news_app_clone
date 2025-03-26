@@ -1,7 +1,5 @@
 import NewsListItem from "@/components/ListItems/NewsListItem";
-import { FlatList, SafeAreaView, SectionList, Text, View } from "react-native";
-import allNews from "@assets/data/allNews.json";
-import { News } from "@/types/types";
+import { SafeAreaView, SectionList, Text, View } from "react-native";
 import homeNews from "@assets/data/homeNews.json";
 import MainNewsCard from "@/components/ListItems/MainNewsCard";
 import TrendingListItem from "@/components/ListItems/TrendingListItem";
