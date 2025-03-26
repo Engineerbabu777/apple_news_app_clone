@@ -3,6 +3,7 @@ import { FlatList, SectionList, Text, View } from "react-native";
 import allNews from "@assets/data/allNews.json";
 import { News } from "@/types/types";
 import homeNews from "@assets/data/homeNews.json";
+import MainNewsCard from "@/components/ListItems/MainNewsCard";
 
 const TITLES = {
   TOP_STORIES: "Top Stories",
@@ -58,7 +59,7 @@ export default function HomeScreen() {
       <SectionList
         sections={homeNews}
         renderItem={({ item }: { item: News }) => (
-          <NewsListItem key={item.id} newsArticle={item} />
+          <MainNewsCard key={item.id} newsArticle={item} />
         )}
         renderSectionHeader={({ section }) =>
           renderSectionHeader(section?.title)
