@@ -4,6 +4,7 @@ import allNews from "@assets/data/allNews.json";
 import { News } from "@/types/types";
 import homeNews from "@assets/data/homeNews.json";
 import MainNewsCard from "@/components/ListItems/MainNewsCard";
+import TrendingListItem from "@/components/ListItems/TrendingListItem";
 
 const TITLES = {
   TOP_STORIES: "Top Stories",
@@ -60,7 +61,7 @@ export default function HomeScreen() {
       <SectionList
         sections={homeNews}
         renderItem={({ item }: { item: News }) => (
-          <MainNewsCard key={item.id} newsArticle={item} />
+          <TrendingListItem key={item.id} newsArticle={item} />
         )}
         renderSectionHeader={({ section }) =>
           renderSectionHeader(section?.title)
