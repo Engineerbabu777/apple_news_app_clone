@@ -1,17 +1,18 @@
 import NewsListItem from "@/components/ListItems/NewsListItem";
-import { FlatList, SectionList, Text, View } from "react-native";
+import { FlatList, SafeAreaView, SectionList, Text, View } from "react-native";
 import allNews from "@assets/data/allNews.json";
 import { News } from "@/types/types";
 import homeNews from "@assets/data/homeNews.json";
 import MainNewsCard from "@/components/ListItems/MainNewsCard";
 import TrendingListItem from "@/components/ListItems/TrendingListItem";
-
+import { AntDesign } from "@expo/vector-icons";
 const TITLES = {
   TOP_STORIES: "Top Stories",
   TRENDING: "Trending",
   FOR_YOU: "For You"
 };
 export default function HomeScreen() {
+  const date = new Date();
   const renderSectionHeader = (title: string) => {
     if (title === TITLES.TOP_STORIES) {
       return (
@@ -69,13 +70,32 @@ export default function HomeScreen() {
     }
   };
   return (
-    <View
+    <SafeAreaView
       style={{
-        marginTop: 60,
-        margin: 15
+        marginHorizontal: 10
       }}
     >
       <SectionList
+        ListHeaderComponent={
+          <View>
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <AntDesign name="apple1" size={24} color={"black"} />
+              <Text style={{ fontSize: 27, fontWeight: "800" }}>News</Text>
+            </View>
+            <Text
+              style={{
+                fontSize: 27,
+                fontWeight: "800",
+                color: "grey"
+              }}
+            >
+              {date.toLocaleString("default", {
+                month: "long",
+                day: "numeric"
+              })}
+            </Text>
+          </View>
+        }
         sections={homeNews}
         renderItem={renderItem}
         renderSectionHeader={({ section }) =>
@@ -84,6 +104,6 @@ export default function HomeScreen() {
         stickySectionHeadersEnabled={false}
         showsVerticalScrollIndicator={false}
       />
-    </View>
+    </SafeAreaView>
   );
 }
