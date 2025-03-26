@@ -53,7 +53,8 @@ export default function HomeScreen() {
   return (
     <View
       style={{
-        marginTop: 60
+        marginTop: 60,
+        margin: 15
       }}
     >
       <SectionList
