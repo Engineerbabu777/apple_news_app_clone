@@ -1,4 +1,4 @@
-import NewsListItem from "@/components/NewsListItem";
+import NewsListItem from "@/components/ListItems/NewsListItem";
 import { FlatList, SectionList, Text, View } from "react-native";
 import allNews from "@assets/data/allNews.json";
 import { News } from "@/types/types";
