@@ -14,7 +14,7 @@ const NewsListItem = ({ newsArticle }: Props) => {
         backgroundColor: "white",
         padding: 10,
         gap: 10,
-        margin: 10,
+        marginBottom: 15,
         borderRadius: 10
       }}
     >

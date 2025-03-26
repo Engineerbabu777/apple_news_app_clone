@@ -5,9 +5,10 @@ import NewsListItemFooter from "../NewsListItemFooter";
 
 type Props = {
   newsArticle: News;
+  index: number;
 };
 
-const TrendingListItem = ({ newsArticle }: Props) => {
+const TrendingListItem = ({ newsArticle, index }: Props) => {
   return (
     <View style={{ flexDirection: "row", marginBottom: 20, gap: 15 }}>
       <View
@@ -21,7 +22,7 @@ const TrendingListItem = ({ newsArticle }: Props) => {
         }}
       >
         <Text style={{ color: "white", fontWeight: "bold", fontSize: 18 }}>
-          1
+          {index}
         </Text>
       </View>
       <View

@@ -51,6 +51,23 @@ export default function HomeScreen() {
 
     return null;
   };
+
+  const renderItem = ({ item, index, section }) => {
+    switch (section.title) {
+      case TITLES.TOP_STORIES:
+        return index === 0 ? (
+          <MainNewsCard newsArticle={item} />
+        ) : (
+          <NewsListItem newsArticle={item} />
+        );
+      case TITLES.TRENDING:
+        return <TrendingListItem newsArticle={item} index={index + 1} />;
+      case TITLES.FOR_YOU:
+        return <NewsListItem newsArticle={item} />;
+      default:
+        return null;
+    }
+  };
   return (
     <View
       style={{
@@ -60,9 +77,7 @@ export default function HomeScreen() {
     >
       <SectionList
         sections={homeNews}
-        renderItem={({ item }: { item: News }) => (
-          <TrendingListItem key={item.id} newsArticle={item} />
-        )}
+        renderItem={renderItem}
         renderSectionHeader={({ section }) =>
           renderSectionHeader(section?.title)
         }
